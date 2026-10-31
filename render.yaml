@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: demorcleak
+    runtime: static
+    repo: https://github.com/hexed00/demorcleak
+    branch: main
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
