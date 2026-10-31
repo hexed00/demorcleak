@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050505" />
+  <title>DEMORCE · tools</title>
+  <link rel="icon" href="icon.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="bg-video" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="bg.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div id="entrance" class="entrance">
+    <div class="scanline"></div>
+    <div class="entrance-inner">
+      <div class="logo-wrap">
+        <div class="pulse-ring"></div>
+        <img src="icon.jpg" alt="demorce" class="logo" />
+      </div>
+      <h1 class="glow">DEMORCE</h1>
+      <p class="tag">tools for the demons</p>
+      <button id="enterBtn" class="enter-btn">click to enter</button>
+      <p class="sub">discord · gif · spotify · pinterest</p>
+    </div>
+  </div>
+
+  <main id="app" class="app hidden">
+    <header class="header">
+      <div class="brand">
+        <img src="icon.jpg" alt="" class="brand-icon" />
+        <div>
+          <div class="brand-title">DEMORCE</div>
+          <div class="brand-sub">media tools · hexed</div>
+        </div>
+      </div>
+      <a class="pill" href="https://discord.gg/emorce" target="_blank" rel="noopener">discord</a>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="core">Downloaders</button>
+      <button class="tab" data-tab="gif">GIF Studio</button>
+      <button class="tab" data-tab="cobalt">Cobalt</button>
+    </div>
+
+    <section id="tab-core" class="panel">
+      <div class="tool-grid" id="toolGrid"></div>
+      <div class="card">
+        <div class="row">
+          <div class="input-wrap">
+            <input id="urlInput" type="text" placeholder="Paste URL or Discord user ID..." />
+          </div>
+          <button id="goBtn" class="btn">Download</button>
+        </div>
+        <div id="uploadRow" class="upload-row hidden">
+          <label class="upload-label">
+            <input type="file" id="fileInput" accept="image/*,video/*" />
+            or upload file from device
+          </label>
+          <div id="localPreview" class="preview hidden"></div>
+        </div>
+        <div id="statusBox" class="status hidden"></div>
+        <div id="resultBox"></div>
+      </div>
+    </section>
+
+    <section id="tab-gif" class="panel hidden">
+      <div class="card">
+        <div class="mode-row">
+          <button class="mode active" data-mode="video">Video → GIF / strip</button>
+          <button class="mode" data-mode="image">Image → GIF</button>
+        </div>
+        <div class="controls">
+          <label>FPS <input type="number" id="fps" value="10" min="4" max="24" /></label>
+          <label>Max width <input type="number" id="maxW" value="320" min="120" max="640" /></label>
+          <label>Seconds <input type="number" id="secs" value="3" min="1" max="8" step="0.5" /></label>
+        </div>
+        <label class="btn upload-btn">
+          <input type="file" id="gifFile" accept="image/*,video/*" hidden />
+          Upload file
+        </label>
+        <p id="gifMsg" class="muted"></p>
+        <div id="gifOut"></div>
+      </div>
+    </section>
+
+    <section id="tab-cobalt" class="panel hidden">
+      <div class="card">
+        <h2>Cobalt proxy</h2>
+        <p class="muted small">TikTok · YouTube · Instagram · Twitter · Reddit · Pinterest video</p>
+        <div class="row">
+          <div class="input-wrap">
+            <input id="cobaltUrl" type="text" placeholder="Paste any supported media URL..." />
+          </div>
+          <button id="cobaltBtn" class="btn">Fetch</button>
+        </div>
+        <label class="check"><input type="checkbox" id="audioOnly" /> audio only</label>
+        <div id="cobaltStatus" class="status hidden"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>DEMORCE · built for axion</span>
+      <a href="https://discord.gg/emorce" target="_blank" rel="noopener">discord.gg/emorce</a>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
